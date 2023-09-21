@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	
+	<!-- header, script, css) -->
+	<th:block th:replace="common/header.html"></th:block>
+		
+		<!-- 상세 화면의 타이틀 -->
+		<th:block th:replace="common/detailTitle.html"></th:block>
+		
+		<section class="ftco-section ftco-animate">
+			<div class="container">
+		    	<div class="row">
+					<div class="col-lg-8" style="text-align: center;">
+				        <h2 class="mb-4" style="font-size: 30px; ">
+							<br>법원 문서 인식 솔루션<br>
+		                </h2>
+		                <br>
+				        <h4>
+							법원 문서 인식 솔루션은 법정 문서 및 법률 문서를 자동으로 인식,추출 및 처리하는데 사용됩니다.
+						</h4>
+						<br><br>
+			            <div class="carousel-inner">
+							<img src="images/companyImages/paperSolutionProccess.png" class="rounded mx-auto d-block">
+			            </div>
+	      			</div>
+			      	<!-- 솔루션상세의 카테고리 -->
+			      	<div th:replace="solution/solutionCategories.html" th:remove="tag"></div>
+				</div>
+			</div>
+		</section>
+		
+		<!-- footer, loader -->
+		<th:block th:replace="common/footer.html"></th:block>
+		
+		<!-- js파일 include -->
+		<th:block th:replace="common/includeJs.html"></th:block>
+		
+</html>

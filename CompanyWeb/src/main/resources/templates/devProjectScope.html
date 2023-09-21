@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<!-- header, script, css) -->
+	<th:block th:replace="common/header.html"></th:block>
+		
+		<!-- 상세 화면의 타이틀 -->
+		<th:block th:replace="common/detailTitle.html"></th:block>
+		
+		<!-- container start -->
+	    <div class="container">
+			<div class="d-flex btnGroup">
+				<div class="p-2 flex-fill bd-highlight">
+					<button class="list-group-item list-group-item-action active" aria-current="true" id="bankDev">
+						금융
+					</button>
+				</div>
+				<div class="p-2 flex-fill bd-highlight">
+					<button class="list-group-item list-group-item-action" aria-current="true" id="insuranceDev">
+						보험
+					</button>
+				</div>
+				<div class="p-2 flex-fill bd-highlight">
+					<button class="list-group-item list-group-item-action" aria-current="true" id="pulicDev">
+						공공
+					</button>
+				</div>
+			</div>
+		</div>
+		
+		<th:block th:replace="devProjectScopeSection.html"></th:block>
+		
+		<!-- container end -->
+		
+		<!-- footer, loader -->
+		<th:block th:replace="common/footer.html"></th:block>
+		
+		<!-- js파일 include -->
+		<th:block th:replace="common/includeJs.html"></th:block>
+</html>

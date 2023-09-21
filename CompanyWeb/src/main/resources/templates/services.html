@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	
+	<!-- header, script, css) -->
+	<th:block th:replace="common/header.html"></th:block>
+	
+		<!-- 상세 화면의 타이틀 -->
+		<th:block th:replace="common/detailTitle.html"></th:block>
+		
+		<section class="ftco-section services-section">
+		    <div class="container">
+		        <div class="row justify-content-center pb-5">
+		            <div class="col-md-6 heading-section text-center ftco-animate">
+		                <h2 class="mb-4">이미지 시스템</h2>
+		            </div>
+		        </div>
+		        
+		        <div class="row justify-content-center pb-5">
+		            <div class="col-lg-12 heading-section ftco-animate" style="float : left; text-align: center;">
+		                <h2 class="mb-4" style="font-size: 30px;">
+							<br>이미지 시스템 구성도<br>
+		                </h2>
+						<h4>
+							업무 현장에서 발생되는 종이, 신분증 등 다양한 문서를 전자화하고 이를 업무에 효과적으로 활용할 수 있는 업무 시스템입니다.<br>
+							다양한 문서의 스캔 • 이미지 보정 • OCR • 압축 및 암호화 • 문서의 조회 등 기존 종이기반의 업무 환경을 Paperless 환경으로 변화시켜 업무 효율성을 극대화 할 수 있습니다.
+						</h4>
+						<img src="images/companyImages/imageSystem.png" >
+		            </div>
+		        </div>
+		    </div>
+		</section>
+		
+		<!-- 이미지 시스템 주요 기술 부분 -->
+		<section class="ftco-counter img">
+			<div class="container">
+				
+				<div class="row justify-content-center pb-5">
+		            <div class="col-md-6 heading-section text-center ftco-animate">
+		                <h2 class="mb-4">다양한 인식 기술</h2>
+		            </div>
+		        </div>
+				
+				<br><br>
+				
+				<!-- 신분증 OCR -->
+				<div class="row no-gutters d-flex">
+					<div class="col-md-6 p-3 pl-md-5 py-5 bg-white align-self-center">
+						<div class="row justify-content-start pb-3">
+							<div class="col-md-12 heading-section heading-section-dark ftco-animate text-center">
+								<h2 class="mb-4">신분증 OCR</h2>
+								<div class="block-23">
+									<ul class="comment-list">
+										<li>
+											<span class="text-dark">주민등록증, 운전면허증, 외국인 신분증, 여권 인식</span>
+										</li>
+										<li>
+											<span class="text-dark">색상, 기울림 보정, 마스킹 효과 등 이미지 처리</span> 
+										</li>
+										<li>
+											<span class="text-dark">자동 초점, 자동 촬영, TTS 등이 포함된 촬영 모듈 탑재</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 d-flex ftco-animate" style="height: 500px;">
+						<div class="img d-flex align-self-stretch" style="background-image:url(images/companyImages/idrecogOCR.png);"></div>
+					</div>
+				</div>
+				
+				<br><br><br><br>
+				
+				<!-- 문서 OCR 전처리 -->
+				<div class="row no-gutters d-flex">
+					<div class="col-md-6 p-3 pl-md-5 py-5 bg-white align-self-center">
+						<div class="row justify-content-start pb-3">
+							<div class="col-md-12 heading-section heading-section-dark ftco-animate text-center">
+								<h2 class="mb-4">문서 OCR 전처리</h2>
+								<div class="block-23">
+									<ul class="comment-list">
+										<li>
+											<span class="text-dark text-right">노이즈 처리 기술 및 해상도 조절</span>
+										</li>
+										<li>
+											<span class="text-dark text-right">색상, 기울림 보정 등 이미지 전처리 탑재</span>
+										</li>
+										<li>
+											<span class="text-dark text-right">문서영역 Crop 제공</span> 
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 d-flex ftco-animate" style="height: 500px;">
+						<div class="img d-flex align-self-stretch" style="background-image:url(images/companyImages/paperOCRBefore.png);"></div>
+					</div>
+				</div>
+				
+				<br><br><br><br>
+				
+				<!-- 자동차 번호판 OCR -->
+				<div class="row no-gutters d-flex">
+					<div class="col-md-6 p-3 pl-md-5 py-5 bg-white align-self-center">
+						<div class="row justify-content-start pb-3">
+							<div class="col-md-12 heading-section heading-section-dark ftco-animate text-center">
+								<h2 class="mb-4">자동차 번호판 OCR</h2>
+								<div class="block-23">
+									<ul class="comment-list">
+										<li>
+											<span class="text-dark text-right">구형 2종 원동기부터 최신 자동차 번호판 인식</span>
+										</li>
+										<li>
+											<span class="text-dark text-right">자동차 번호판 인식, Crop 기능이 포함된 촬영 모듈 탑재</span> 
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 d-flex ftco-animate" style="height: 500px;">
+						<div class="img d-flex align-self-stretch" style="background-image:url(images/companyImages/carlsnumOCR.png);"></div>
+					</div>
+				</div>
+				
+				<br><br><br><br>
+				
+				<!-- 문서 OCR -->
+				<div class="row no-gutters d-flex">
+					<div class="col-md-6 p-3 pl-md-5 py-5 bg-white align-self-center">
+						<div class="row justify-content-start pb-3">
+							<div class="col-md-12 heading-section heading-section-dark ftco-animate text-center">
+								<h2 class="mb-4">문서 OCR</h2>
+								<div class="block-23">
+									<ul class="comment-list">
+										<li>
+											<span class="text-dark text-right">문서 OCR을 활용하여 Text Data 추출</span>
+										</li>
+										<li>
+											<span class="text-dark text-right">추출 Data 기반 이미지 자동 분류</span>
+										</li>
+										<li>
+											<span class="text-dark text-right">민감 개인정보에 대한 마스킹 지원</span> 
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 d-flex ftco-animate" style="height: 500px;">
+						<div class="img d-flex align-self-stretch" style="background-image:url(images/companyImages/paperOCR.png);"></div>
+					</div>
+				</div>
+				
+				<br><br><br><br>
+				
+			</div>
+		</section>
+		
+		<!-- 신분증진위 확인 및 안면인식 연계 시스템 구성도 -->
+		<section class="ftco-counter img">
+			<div class="container">
+				<div class="col-md-12 heading-section heading-section-dark ftco-animate text-center">
+					<h2 class="mb-4" style="font-size: 30px;">
+						신분증진위확인 및 안면인식연계 시스템 구성도
+					</h2>
+					<h4>
+						금융사고를 사전에 방지하고 강화된 금융 보안 기준 준수<br>
+						신분증 진위확인 및 안면인식 연계 시스템
+					</h4><br><br>
+					<img src="images/companyImages/AuthAndPremo.png">
+				</div>
+
+			</div>
+		</section>
+		
+		<!-- footer, loader -->
+		<th:block th:replace="common/footer.html"></th:block>
+		
+		<!-- js파일 include -->
+		<th:block th:replace="common/includeJs.html"></th:block>
+	
+</html>

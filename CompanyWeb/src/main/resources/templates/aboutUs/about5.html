@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+	<!-- header, script, css) -->
+	<th:block th:replace="common/header.html"></th:block>
+	
+		<!-- 상세 화면의 타이틀 -->
+		<th:block th:replace="common/detailTitle.html"></th:block>
+		
+			<section class="ftco-section bg-light">
+				<div class="container">
+					<div class="row justify-content-center">
+						<div class="col-md-12">
+							<div class="wrapper px-md-4">
+								<div class="row mb-5">
+									<div class="col-md-4">
+										<div class="dbox w-100 text-center">
+											<div
+												class="icon d-flex align-items-center justify-content-center">
+												<span class="fa fa-map-marker"></span>
+											</div>
+											<div class="text">
+												<p>
+													<span>Address : </span> 서울시 강서구 양천로 583 우림블루나인비즈니스센터 B동 308,309호
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="dbox w-100 text-center">
+											<div
+												class="icon d-flex align-items-center justify-content-center">
+												<span class="fa fa-phone"></span>
+											</div>
+											<div class="text">
+												<p>
+													<span>TEL : </span> <a href="tel://1234567920">02-2668-6530 </a>
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="dbox w-100 text-center">
+											<div
+												class="icon d-flex align-items-center justify-content-center">
+												<span class="fa fa-paper-plane"></span>
+											</div>
+											<div class="text">
+												<p>
+													<span>Email : </span> <a href="javascript:void(0);" id="emailTo">info@yoursite.com</a>
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row no-gutters">
+									<div class="col-md-7">
+										<div class="contact-wrap w-100 p-md-5 p-4">
+											<h3 class="mb-4">Contact Us</h3>
+											<form method="POST" id="contactForm" name="contactForm"
+												class="contactForm">
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="label" for="name">Full Name</label> <input
+																type="text" class="form-control" name="name" id="name"
+																placeholder="Name">
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="label" for="email">Email Address</label> <input
+																type="email" class="form-control" name="email" id="email"
+																placeholder="Email">
+														</div>
+													</div>
+													<div class="col-md-12">
+														<div class="form-group">
+															<label class="label" for="subject">Subject</label> <input
+																type="text" class="form-control" name="subject"
+																id="subject" placeholder="Subject">
+														</div>
+													</div>
+													<div class="col-md-12">
+														<div class="form-group">
+															<label class="label" for="#">Message</label>
+															<textarea name="message" class="form-control" id="message"
+																cols="30" rows="4" placeholder="Message"></textarea>
+														</div>
+													</div>
+													<div class="col-md-12">
+														<div class="form-group">
+															<input type="button" value="Send Message" id="sendBtn" onclick="location.href='javascript:void(0);'"
+																class="btn btn-primary">
+															<div class="submitting"></div>
+														</div>
+													</div>
+												</div>
+											</form>
+										</div>
+									</div>
+									<div class="col-md-5 order-md-first d-flex align-items-stretch">
+										<div id="map" class="map"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		
+		<!-- footer, loader -->
+		<th:block th:replace="common/footer.html"></th:block>
+		
+		<!-- js파일 include -->
+		<th:block th:replace="common/includeJs.html"></th:block>
+		
+		<script>
+			// 지도의 중심 좌표
+			var markerPosition = new kakao.maps.LatLng(37.557387, 126.864643);
+			
+//			var container = document.getElementById('map');	// 지도를 표시할 div
+			var staticMapContainer = document.getElementById('map');
+			
+			// 마커를 생성
+			var marker = new kakao.maps.Marker({
+				position : markerPosition
+			});
+			
+		/*	
+			var options = {
+				center: markerPosition,
+				level: 3	// 지도의 확대 레벨
+			};
+		*/	
+			var staticMapOption = {
+				center : markerPosition,
+				level : 3,
+				marker: marker
+			}
+		
+			// 지도를 표시할 div과 지도 옵션으로 지도를 생성
+//			var map = new kakao.maps.Map(container, options);
+			
+			// 이미지 지도를 생성
+			var staticMap = new kakao.maps.StaticMap(staticMapContainer, staticMapOption);
+			
+			// 마커가 지도 위에 표시되도록 설정
+//			marker.setMap(map);
+			
+			// 마커를 제거 할때 사용
+			// marker.setMap(null);
+		</script>
+	
+</html>

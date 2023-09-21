@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	
+	<!-- header, script, css) -->
+	<th:block th:replace="common/header.html"></th:block>
+	
+		<!-- 상세 화면의 타이틀 -->
+		<th:block th:replace="common/detailTitle.html"></th:block>
+		
+		<section class="ftco-section">
+		    <div class="container">
+			    <div class="col-lg-12 heading-section ftco-animate pb-5 text-left" style="float : left; text-align: left; animation-delay: 0.3s;">
+			    	<h2 class="mb-6">VISION</h2><br>
+			    </div>
+			       
+				<div style="text-align : center;" id="Vision">
+					<div class="Vs_Head">
+						ICT 산업을 선도하는 종합 ICT 전문 기업
+					</div>
+					<div class="Vs_HeadLine"></div>
+					
+					<container id="Vs_container">
+						<div class="Vs_content1">
+							<div class="Vs_contentNum">01</div>
+							<div class="Vs_contentTop">MISSION</div>
+							<div class="Vs_contentMiddle">
+								<div class="Vs_cirlce">
+									<div class="Vs_circle_inner">
+										내수시장 경쟁력 강화
+									</div>
+								</div>
+							</div>
+							<div class="Vs_ContentBottom">
+								● 출시 제품의 매출 확대 추진<br>
+								● 적극적 제품 홍보를 통한 시장활성화 추진
+							</div>
+						</div>
+						
+						<div class="Vs_content2">
+							<span class="Vs_contentNum">02</span>
+							<div class="Vs_contentTop">VISION</div>
+							<div class="Vs_contentMiddle">
+								<div class="Vs_cirlce">
+									<div class="Vs_circle_inner">
+										지속적 신제품 개발
+									</div>
+								</div>
+							</div>
+							<div class="Vs_ContentBottom">
+								● 차세대 전용인식기 개발 및 응용제품 개발<br>
+								● 공동프로젝트를 통한 통합프로그램 개발
+							</div>
+						</div>
+						
+						<div class="Vs_content3">
+							<div class="Vs_contentNum">03</div>
+							<div class="Vs_contentTop">CORE VALUES</div>
+							<div class="Vs_contentMiddle">
+								<div class="Vs_cirlce">
+									<div class="Vs_circle_inner">
+										해외 시장 진출
+									</div>	
+								</div>
+							</div>
+							<div class="Vs_ContentBottom">
+								● 글로벌형 제품의 출시<br>
+								● 해외 유통업체와의 제휴를 통한 안정적 시장 개혁
+							</div>
+						</div>
+					</container>
+		        </div>
+	        </div>
+       </section>
+		
+		<!-- footer, loader -->
+		<th:block th:replace="common/footer.html"></th:block>
+		
+		<!-- js파일 include -->
+		<th:block th:replace="common/includeJs.html"></th:block>
+	
+</html>

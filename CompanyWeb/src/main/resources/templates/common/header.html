@@ -1,0 +1,82 @@
+<head>
+	<title>ROSIS_IT</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link th:href="@{https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800&display=swap}" rel="stylesheet">
+	<link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css}">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Hi+Melody&family=Gamja+Flower&family=Nanum+Gothic:wght@400&family=Noto+Sans+KR:wght@800&display=swap">
+	
+	<link rel="stylesheet" th:href="@{css/animate.css}">
+	<link rel="stylesheet" th:href="@{css/owl.theme.default.min.css}">
+	<link rel="stylesheet" th:href="@{css/magnific-popup.css}">
+	<link rel="stylesheet" th:href="@{css/flaticon.css}">
+	<link rel="stylesheet" th:href="@{css/style.css}">
+	<link rel="stylesheet" th:href="@{css/styleRosis.css}">
+	<link th:href='@{//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css}' rel='stylesheet' type='text/css'>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/event.js"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b17c4ccac91285d148314713384f8674"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b17c4ccac91285d148314713384f8674&libraries=LIBRARY"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b17c4ccac91285d148314713384f8674&libraries=services"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b17c4ccac91285d148314713384f8674&libraries=services,clusterer,drawing"></script>
+</head>
+<body style="font-family: 'Noto Sans KR', sans-serif;">
+<div class="wrap">
+	<div class="container">
+		<div class="row justify-content-between">
+			<div class="col-12 col-md d-flex align-items-center">
+				<p class="mb-0 phone"><span class="mailus">TEL : </span>02-2668-6530</p>
+			</div>
+			<div class="col-12 col-md d-flex justify-content-md-end">
+			</div>
+		</div>
+	</div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	<div class="container">
+		<a class="navbar-brand" th:href="@{/}">
+		   <img src="images/rosis_remove.png" style="width: 105px; height: 36px;">
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="oi oi-menu"></span> Menu
+		</button>
+	
+		<div class="collapse navbar-collapse" id="ftco-nav">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item">
+					<a th:href="@{/}" class="nav-link">Home</a>
+				</li>
+				<li class="nav-item dropdown">
+	            	<a class="nav-link dropdown-toggle" href="javascript:void(0);" id="businessDropdown" data-parent="#ftco-nav" data-bs-toggle="dropdown" aria-expanded="false">
+	                	회사소개
+	            	</a>
+		            <div class="dropdown-menu" aria-labelledby="businessDropdown">
+		            	<a class="dropdown-item" th:href="@{about(about=${1})}">CEO인사말</a>
+		                <a class="dropdown-item" th:href="@{about(about=${2})}">회사개요</a>
+		                <a class="dropdown-item" th:href="@{about(about=${3})}">연혁</a>
+		                <a class="dropdown-item" th:href="@{about(about=${4})}">비전</a>
+		                <a class="dropdown-item" th:href="@{about(about=${5})}">오시는길</a>
+		            </div>
+		        </li>
+<!--		        <li class="nav-item"><a th:href="@{services}" class="nav-link">사업분야</a></li>-->
+				<li class="nav-item dropdown">
+	            	<a class="nav-link dropdown-toggle" href="javascript:void(0);" id="businessAreasDropdown" data-parent="#ftco-nav" data-bs-toggle="dropdown" aria-expanded="false">
+	                	사업분야
+	            	</a>
+		            <div class="dropdown-menu" aria-labelledby="businessAreasDropdown">
+		            	<a class="dropdown-item" th:href="@{businessAreas(Areas=${1})}">이미지시스템</a>
+		                <a class="dropdown-item" th:href="@{businessAreas(Areas=${2})}">이미지마스킹</a>
+		                <a class="dropdown-item" th:href="@{businessAreas(Areas=${3})}">HTML5 뷰어</a>
+		                <a class="dropdown-item" th:href="@{businessAreas(Areas=${4})}">OCR</a>
+		                <a class="dropdown-item" th:href="@{businessAreas(Areas=${5})}">신분증진위확인</a>
+		            </div>
+		        </li>
+		        <li class="nav-item"><a th:href="@{product}" class="nav-link">제품소개</a></li>
+<!--				<li class="nav-item"><a th:href="@{solutionList}" class="nav-link">솔루션</a></li>-->
+				<li class="nav-item"><a th:href="@{customer}" class="nav-link">고객사</a></li>
+<!--				<li class="nav-item"><a th:href="@{devProjectScope}" class="nav-link">개발사업범위</a></li>-->
+			</ul>
+		</div>
+	</div>
+</nav>

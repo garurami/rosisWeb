@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	
+	<!-- header, script, css) -->
+	<th:block th:replace="common/header.html"></th:block>
+	
+	<style>
+		#serviceCarousel .d-block{
+			background-color: #4690B1;
+			/*background-color: black;*/
+		}
+		
+		#serviceCarousel .icon{
+			text-align: center;
+		}
+	</style>
+	
+	<body>
+	
+		<!-- 상세 화면의 타이틀 -->
+		<th:block th:replace="common/detailTitle.html"></th:block>
+		
+		<section class="ftco-section services-section">
+		    <div class="container">
+		        <div class="row justify-content-center pb-5">
+		            <div class="col-md-6 heading-section text-center ftco-animate">
+		                <h2 class="mb-4">Electronic   <span>Document</span> Management System</h2>
+		            </div>
+		        </div>
+		
+		        <div id="serviceCarousel" class="carousel slide" data-ride="carousel">
+		            <div class="carousel-inner">
+						<div class="row d-flex">
+		                    <!-- 이미지 솔루션 -->
+		                    <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+		                        <div class="media block-6 services d-block"   id="item1">
+		                            <div class="line"></div>
+		                            <div class="icon">
+										<img src="images/businessImages/imageSolution.png">
+									</div>
+		                            <div class="media-body"><br>
+		                                <h3 class="heading mb-3">이미지 솔루션</h3>
+		                                <p>
+											- 이미지 마스킹 솔루션<br>
+											- 이미지 스캔/압축 솔루션<br>
+											- 이미지 암/복호화<br>
+											- 솔루션폼/문자인식 솔루션<br>
+											- 이미지 뷰어 솔루션<br>
+											- 이미지 캡쳐 솔루션
+		                                </p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    
+		                    <!-- 전자문서 솔루션 -->
+		                    <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+		                        <div class="media block-6 services d-block"  style="width:auto; "id="item2">
+		                            <div class="line"></div>
+		                            <div class="icon">
+										<img src="images/businessImages/electronicSolution.png">
+									</div>
+		                            <div class="media-body"><br>
+		                                <h3 class="heading mb-3">전자문서 솔루션</h3>
+		                                <p>
+											- EDM/ECM 구축 <br> 
+											- 전자증빙 시스템 구축<br>
+											- 법원문서 자동인식 시스템 구축<br>
+											- 인감대사 시스템 구축<br>
+											- 범칙금 인식 시스템 구축<br>
+											- 파일 동기화 시스템 구축
+										</p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    
+		                    
+		                    <!-- SI(System Integration) -->
+		                    <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+		                        <div class="media block-6 services d-block"  >
+		                            <div class="line"></div>
+		                            <div class="icon"> 
+										<img src="images/businessImages/IntegratedMaintenance.png">
+									</div>
+									<div class="media-body"><br>
+										<h3 class="heading mb-3">SI(System Integration)</h3>
+										<p>
+											- 인터넷뱅킹/스마트뱅킹 연계개발<br>
+											- 인프라 운영인력 아웃소싱<br>
+										</p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    
+		                    <!-- 연구개발(R&D) -->
+		                    <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+		                        <div class="media block-6 services d-block"  >
+		                            <div class="line"></div>
+		                            <div class="icon"> 
+										<img src="images/businessImages/researchAndDevelopment.png">
+									</div>
+									<div class="media-body"><br>
+										<h3 class="heading mb-3">연구개발 (R&D)</h3>
+										<p>
+											- 이미지 처리 기술연구<br>
+											- 전자문서 솔루션 기술연구<br>
+											- 비정형 데이터 처리 기술연구<br>
+											- Device Interface (Printer & Scanner)
+										</p>
+		                           </div>
+		                        </div>
+		                    </div>
+		                    
+		                    <!-- 인프라 서비스 -->
+		                    <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+		                        <div class="media block-6 services d-block"  >
+		                            <div class="line"></div>
+		                            <div class="icon"> 
+										<img src="images/businessImages/infraService.png">
+									</div>
+									<div class="media-body"><br>
+										<h3 class="heading mb-3">인프라 서비스</h3>
+										<p>
+											- OA(Scanner, Printer, Projector)<br>
+											- UNIX Server (IBM/HP/SUN)<br>
+											- NT Server (IBM/HP/DELL)<br>
+											- 네트워크 (Cisco/3Com)
+										</p>
+		                           </div>
+		                        </div>
+		                    </div>
+		                    
+		                    <!-- 통합 유지보수 -->
+		                    <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+		                        <div class="media block-6 services d-block"  >
+		                            <div class="line"></div>
+		                            <div class="icon"> 
+										<img src="images/businessImages/IntegratedMaintenance.png">
+									</div>
+									<div class="media-body"><br>
+										<h3 class="heading mb-3">통합 유지보수</h3>
+										<p>
+											- 전자문서 솔루션 유지보수<br>
+											- 이미지 솔루션 유지보수<br>
+											- 하드웨어 유지보수<br>
+											- 소프트웨어 유지보수<br>
+											- 사무자동화기기 유지보수
+										</p>
+		                           </div>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</section>
+		
+		<!-- footer, loader -->
+		<th:block th:replace="common/footer.html"></th:block>
+		
+		<!-- js파일 include -->
+		<th:block th:replace="common/includeJs.html"></th:block>
+	
+	</body>
+</html>

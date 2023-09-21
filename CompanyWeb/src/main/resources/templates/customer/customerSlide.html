@@ -1,0 +1,92 @@
+<section class="ftco-section ftco-section testimony-section" style="height: 910px;">
+	<div class="container">
+		<div class="heading-section mb-5 mt-5 mt-lg-0">
+			<h2 class="mb-3">Customer</h2>
+		</div>
+		<div class="row justify-content-end">
+			<div class="col-md-12 d-flex justify-content-center" style="height: 346px;">
+				<div id="customerCarousel" class="carousel slide col-md-9"
+					data-ride="carousel" >
+					<div class="carousel-inner">
+						
+						<!-- 첫 번째 슬라이드(보험) -->
+						<div class="carousel-item active">
+							<h1 class="heading mb-4" style="font-family: 'Noto Sans KR', sans-serif; font-weight: 10px; text-align: center; font-size: 32px;">
+								보험
+							</h1>
+							<div class="row no-gutters d-flex align-items-stretch" style="text-align: center;">
+								<th:block th:replace="customer/insuranceEach.html"></th:block>
+							</div>
+						</div>
+
+						<!-- 두 번째 슬라이드(금융/은행) -->
+						<div class="carousel-item">
+							<h3 class="heading mb-4" 
+								style="font-family: 'Noto Sans KR', sans-serif; font-weight: 10px; text-align: center; font-size: 32px;">
+								금융/은행
+							</h3>
+							<div class="row no-gutters d-flex align-items-stretch" style="text-align: center; ">
+								<th:block th:replace="customer/bankEach.html"></th:block>
+							</div>
+						</div>
+						
+						<!-- 세 번째 슬라이드(저축은행) -->
+						<div class="carousel-item">
+							<h3 class="heading mb-4" 
+								style="font-family: 'Noto Sans KR', sans-serif; font-weight: 10px; text-align: center; font-size: 32px;">
+								저축은행
+							</h3>
+							<div class="row no-gutters d-flex align-items-stretch" style="text-align: center;">
+								<th:block th:replace="customer/saveEach.html"></th:block>
+							</div>
+						</div>
+						
+						<!-- 네 번째 슬라이드(캐피탈) -->
+						<div class="carousel-item">
+							<h3 class="heading mb-4" 
+								style="font-family: 'Noto Sans KR', sans-serif; font-weight: 10px; text-align: center; font-size: 32px;">
+								캐피탈
+							</h3>
+							<div class="row no-gutters d-flex align-items-stretch" style="text-align: center;">
+								<th:block th:replace="customer/capitalEach.html"></th:block>
+							</div>
+						</div>
+						
+						<!-- 다섯 번째 슬라이드(공기업) -->
+						<div class="carousel-item">
+							<h3 class="heading mb-4" 
+								style="font-family: 'Noto Sans KR', sans-serif; font-weight: 10px; text-align: center; font-size: 32px;">
+								공기업
+							</h3>
+							<div class="row no-gutters d-flex align-items-stretch" style="text-align: center;">
+								<th:block th:replace="customer/publicEach.html"></th:block>
+							</div>
+						</div>
+						
+						<!-- 여섯 번째 슬라이드(기타) -->
+						<div class="carousel-item">
+							<h3 class="heading mb-4" 
+								style="font-family: 'Noto Sans KR', sans-serif; font-weight: 10px; text-align: center; font-size: 32px;">
+								기타
+							</h3>
+							<div class="row no-gutters d-flex align-items-stretch" style="text-align: center;">
+								<th:block th:replace="customer/etcEach.html"></th:block>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Carousel Controls -->
+				<a class="carousel-control-prev" href="#customerCarousel" role="button" data-slide="prev" style="color:black; cursor: default;">
+					<svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+						<path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+					</svg> 
+				</a> 
+				<a class="carousel-control-next" href="#customerCarousel" role="button" data-slide="next" style="color:black; cursor: default;">
+					<svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+						<path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+					</svg>
+				</a>
+			</div>
+		</div>
+	</div>
+</section>

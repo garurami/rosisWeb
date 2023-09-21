@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	
+	<!-- header, script, css) -->
+	<th:block th:replace="common/header.html"></th:block>
+	
+		<!-- 상세 화면의 타이틀 -->
+		<th:block th:replace="common/detailTitle.html"></th:block>
+		
+		<section class="ftco-section bg-light">
+			<div class="container">
+		    	<div class="row d-flex">
+					<!-- each문으로 리스트 자동 완성 -->
+					<th:block th:replace="solution/solutionEach.html"></th:block>
+				</div>
+			</div>
+		</section>
+		
+		<!-- footer, loader -->
+		<th:block th:replace="common/footer.html"></th:block>
+		
+		<!-- js파일 include -->
+		<th:block th:replace="common/includeJs.html"></th:block>
+	
+</html>

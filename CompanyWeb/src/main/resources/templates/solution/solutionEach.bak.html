@@ -1,0 +1,15 @@
+<th:block th:each="imgList, c : ${imageList}">
+	<div class="col-md-4 d-flex ftco-animate" >
+		<div class="project">
+			<div class="img">
+				<img th:src="${imgList}" class="img-fluid" alt="Colorlib Template">
+			</div>
+			<div class="text text-center">
+				<h3 class="heading" style="text-align: center;"><a th:href="@{solutionDetail(solution=${c.index+1})}" style="color : black;" th:text="${solutionNmList[c.index]}"></a></h3>
+			</div>
+			<a th:href="${imgList}" class="icon image-popup d-flex justify-content-center align-items-center">
+				<span class="fa fa-expand"></span>
+			</a>
+		</div>
+	</div>
+</th:block>

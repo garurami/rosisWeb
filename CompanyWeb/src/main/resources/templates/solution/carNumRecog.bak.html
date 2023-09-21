@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	
+	<!-- header, script, css) -->
+	<th:block th:replace="common/header.html"></th:block>
+	
+	<body>
+	
+		<!-- 상세 화면의 타이틀 -->
+		<th:block th:replace="common/detailTitle.html"></th:block>
+		
+		<section class="ftco-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8 ftco-animate">
+						<h2 class="mb-3">개요</h2>
+						<p>
+							주차환경에 따라 최적화된 시스템을 구축하여 방문 고객 차량의 원활한 흐름을 유지하며 최소의 관리비용으로 효율적인<br>
+							차량관리 및 주차관리 시스템 환경을 제공 함으로서 방문고객 및 관리자의 편의를 도모합니다. 또한 관리자에게는 각종 리포트를 제공함으로써<br>
+							여러 가지의 통계자료나 필요한 정보를 분석하여 볼 수 있도록 하여 방문고객에게 부가 서비스를 제공 할 수 있는 제반 시설을 확충, 방문고객의<br>
+							만족도를 높여줌과 동시에 차량관리 및 주차관리를 달성하는데 있습니다.
+						</p>
+						<p>
+							<img src="images/carLsNumOcr.png" alt="" class="img-fluid">
+						</p>
+						
+						<h2 class="mb-3">시스템구성도</h2>
+						<p>
+							<img src="images/carRecogSystem.png" alt="" class="img-fluid">
+						</p>
+						
+						<h2 class="mb-3">정성적 기대효과</h2>
+						<p>
+							차량출입관리 구축을 통해 업무처리 효율화 및 비용감소,<br>
+							발전지향적 IT 인프라, 기업(기관) 이미지 향상, 대 고객 서비스 개선과 같은 정성적 기대효과를 얻을 수 있습니다.
+						</p>
+						<p>
+							<img src="images/expectedEffect.png" alt="" class="img-fluid">
+						</p>
+						
+						<h2 class="mb-3">정량적 기대효과</h2>
+						<p>
+							차량출입관리 구축을 통해 업무처리 효율화 및 비용감소,<br>
+							발전지향적 IT 인프라, 기업(기관) 이미지 향상, 대 고객 서비스 개선과 같은 정성적 기대효과를 얻을 수 있습니다.
+						</p>
+						<p>
+							<img src="images/quantitative.png" alt="" class="img-fluid">
+						</p>
+						
+						<p>
+							<strong>주1)</strong> 정량적 기대효과의 계산은 가정에 따라 산정(전제조건에 따라 결과치가 변동될 수 있음)
+							<strong>주의)</strong> 
+							<p class="text-in">1. 상기 수치는 예측치 이므로 실제 상황과 많은 차이가 날 수 있습니다.</p>
+							<p class="text-in">2. 상기 절감효과는 차량번호 인식시스템 구축에 국한 된 것입니다. </p>
+							<p class="text-in">3. 비용은 대부분 정기권과 비정기권을 동시에 사용하고 있음을 반영하였습니다. </p>
+						</p>
+					</div> <!-- .col-md-8 -->
+				  
+					<!-- 솔루션상세의 카테고리 -->
+					<div th:replace="common/solutionCategories.html" th:remove="tag"></div>
+				</div>
+			</div>
+		</section> <!-- .section -->
+		
+		<!-- footer, loader -->
+		<th:block th:replace="common/footer.html"></th:block>
+		
+		<!-- js파일 include -->
+		<th:block th:replace="common/includeJs.html"></th:block>
+	
+	</body>
+</html>

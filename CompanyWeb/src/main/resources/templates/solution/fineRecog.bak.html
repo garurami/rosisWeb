@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	
+	<!-- header, script, css) -->
+	<th:block th:replace="common/header.html"></th:block>
+	
+	<body>
+	
+		<!-- 상세 화면의 타이틀 -->
+		<th:block th:replace="common/detailTitle.html"></th:block>
+		
+		<section class="ftco-section">
+			<div class="container">
+		    	<div class="row">
+		      		<div class="col-lg-8 ftco-animate">
+		        		<h2 class="mb-3">자동차세/범칙금 처리 업무 구성도</h2>
+				        <p>
+							자동차세, 범칙금 통지서를 이미지화하여 기존 고객데이터와 함께 관할 기관으로 데이터를 전송하고,<br>
+							고객이 직접 자동차세 및 범칙금을 직접 납부할 수 있도록 고지서를 발송하여 효율적인 업무처리가 가능하도록 구성합니다.
+						</p>
+				        <p>
+				        	<img src="images/carPayProcess1.png" alt="" class="img-fluid">
+				        </p>
+				        <h2 class="mb-3">OCR 적용 방안</h2>
+				        <p>
+							각종 위반사실 통지서에 대한 항목별(일련번호, 차량번호, 위반장소등...) 인식한 후 인식된 DATA를 DB에 저장 및 관리합니다.
+						</p>
+				        <p>
+				        	<img src="images/ocr1.png" alt="" class="img-fluid">
+				        </p>
+				        <h2 class="mb-3">구축 후 업무변화</h2>
+				        <p>
+							통지서 인식데이터(일련번호)와 고객 관련 서류 이미지를 관할 기관에 전송하면, 관할기관에서 고객에게 직접<br>
+							고지서를 발송하고 고객이 납부함에 따라 업무처리가 간소화 및 범칙금 대납 비용 부담감소, 범칙금 회수율 위험 부담을 감소시키는 효과가 있습니다.
+						</p>
+				        <p>
+				        	<img src="images/buildProcess.png" alt="" class="img-fluid">
+				        </p>
+			      </div> <!-- .col-md-8 -->
+			      
+			      <!-- 솔루션상세의 카테고리 -->
+			      <div th:replace="common/solutionCategories.html" th:remove="tag"></div>
+		      </div>
+		  	</div>
+		</section> <!-- .section -->
+		
+		<!-- footer, loader -->
+		<th:block th:replace="common/footer.html"></th:block>
+		
+		<!-- js파일 include -->
+		<th:block th:replace="common/includeJs.html"></th:block>
+	
+	</body>
+</html>

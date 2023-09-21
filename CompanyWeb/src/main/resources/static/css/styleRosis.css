@@ -1,0 +1,119 @@
+@charset "UTF-8";
+
+.Vs_Head{
+	font-size: 40px;
+	font-weight: bold;
+	color: #4690B1;
+}
+
+.Vs_HeadLine{
+	border: 0px;
+	height: 10px;
+	background: linear-gradient(to right, rgb(0, 0, 160), #4690B1);
+	margin-left: 20%;
+	margin-right: 20%;
+	margin-bottom: 50px;
+}
+
+#Vs_container{
+	display: flex;
+}
+
+@media (max-width : 991.98px){
+	#Vs_container{
+		flex-direction : column;
+	}
+}
+
+
+.Vs_content1{
+	flex : 1;
+}
+
+.Vs_content2{
+	flex : 1;
+}
+
+.Vs_content3{
+	flex : 1;
+}
+
+.Vs_contentNum{
+	font-size: 50px;
+	font-weight: 700;
+	background: linear-gradient(to right, rgb(0, 0, 160), #4690B1);
+  	background-clip: text;
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+}
+
+.Vs_contentTop{
+	
+	background: linear-gradient(to right, rgb(0, 0, 160), #4690B1);
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 40px;
+	border-radius: 50px;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+.Vs_contentMiddle{
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+}
+
+.Vs_cirlce{
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 250px;
+  	height: 250px;
+  	border-radius: 50%;
+  	background: linear-gradient(to right, rgb(0, 0, 160), #4690B1);
+}
+
+.Vs_circle_inner{
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+	width: 80%;
+	height: 80%;
+	border-radius: 50%;
+	background: white;
+  	color:#4690B1;
+}
+
+.Vs_ContentBottom{
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	margin-top: 10px;
+	margin-bottom: 100px;
+  	color: black;
+}
+
+
+/*
+	테스트
+*/
+
+/*.Vs_cirlce{*/
+/*  	justify-content: center;*/
+/*  	align-items: center;*/
+/*  	border-radius: 50%;*/
+/*  	background: linear-gradient(to right, rgb(0, 0, 160), #4690B1);*/
+/*}*/
+
+/*.Vs_circle_inner{*/
+/*  	justify-content: center;*/
+/*  	align-items: center;*/
+/*	border-radius: 50%;*/
+/*	background: white;*/
+/*  	color:#4690B1;*/
+/*}*/

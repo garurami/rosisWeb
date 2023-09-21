@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<!-- header, script, css) -->
+	<th:block th:replace="common/header.html"></th:block>
+	<body>
+	
+		<!-- 상세 화면의 타이틀 -->
+		<th:block th:replace="common/detailTitle.html"></th:block>
+		
+		<section class="ftco-section">
+			<div class="container">
+		    	<div class="row">
+		      		<div class="col-lg-8 ftco-animate">
+				        <h2 class="mb-3">eSonic Giro(지로인식)</h2>
+				        <p>
+				          <img src="images/esonicgiro.png" alt="" class="img-fluid">
+				    	</p>
+				    </div>
+		    	</div>		      
+			    <!-- 솔루션상세의 카테고리 -->
+			    <div th:replace="common/solutionCategories.html" th:remove="tag"></div>
+			</div>
+		</section> <!-- .section -->
+		
+		<!-- footer, loader -->
+		<th:block th:replace="common/footer.html"></th:block>
+		
+		<!-- js파일 include -->
+		<th:block th:replace="common/includeJs.html"></th:block>
+	
+	</body>
+</html>
