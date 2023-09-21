@@ -76,6 +76,7 @@ public class PageController {
 	
 	/**
 	 * 사업분야
+	 * 2023.09.21 이후 사용 X
 	 * @return
 	 */
 	@GetMapping("/services")
@@ -84,6 +85,46 @@ public class PageController {
 		model.addAttribute("detailTitle", "사업분야");
 		
 		return "services";
+	}
+	
+	/**
+	 * 사업분야
+	 * @param areas
+	 * @param model
+	 * @return
+	 */
+	@GetMapping("/businessAreas")
+	public String businessAreasPageMove(@RequestParam("areas") String areas ,Model model) {
+		
+		model.addAttribute("detailTitle", "사업분야");
+		
+		// dept가 여러개 일 경우 
+		DeptUtil deptUtil = new DeptUtil();
+		List<DeptVO> deptList = new ArrayList<>();
+		String business = "";
+		
+		switch(areas) {
+			case "1" :
+				deptList = deptUtil.deptList(new String[] {"이미지시스템"});
+				business = "imageSystem";
+				break;
+			case "2" :
+				deptList = deptUtil.deptList(new String[] {"이미지마스킹"});
+				business = "imageMasking";
+				break;
+			case "3" :
+				deptList = deptUtil.deptList(new String[] {"HTML5 뷰어"});
+				business = "html5Viewer";
+				break;
+			case "4" :
+				deptList = deptUtil.deptList(new String[] {"OCR 및 신분증인식"});
+				business = "ocrAndAuth";
+				break;
+		}
+		
+		model.addAttribute("deptList", deptList);
+		
+		return "business/"+business;
 	}
 	
 	/**
