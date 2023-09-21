@@ -101,6 +101,8 @@ public class PageController {
 		// dept가 여러개 일 경우 
 		DeptUtil deptUtil = new DeptUtil();
 		List<DeptVO> deptList = new ArrayList<>();
+		
+		// html 파일명
 		String business = "";
 		
 		switch(areas) {
@@ -117,8 +119,12 @@ public class PageController {
 				business = "html5Viewer";
 				break;
 			case "4" :
-				deptList = deptUtil.deptList(new String[] {"OCR 및 신분증인식"});
-				business = "ocrAndAuth";
+				deptList = deptUtil.deptList(new String[] {"OCR 인식"});
+				business = "ocrRecog";
+				break;
+			case "5" :
+				deptList = deptUtil.deptList(new String[] {"신분증 진위확인"});
+				business = "idAuth";
 				break;
 		}
 		
