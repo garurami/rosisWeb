@@ -2,7 +2,6 @@ package com.eSonic.ecm.domain;
 
 import java.util.Date;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -17,6 +16,10 @@ import lombok.Setter;
 @Entity
 @Table(name = "TB_ESONIC_USER") // EsContentEntity 엔티티를 테이블 명 ESONICCONTENT로 매핑
 public class EsUserEntity {
+	
+	public EsUserEntity (){
+	}
+	
 	@Id
 	private String esUserId;
 	private String esUserName;
