@@ -13,7 +13,7 @@ import com.eSonic.ecm.service.EsUserService;
 
 
 @Controller
-@RequestMapping(value = "/interface/user")
+@RequestMapping(value = "/interface")
 public class EsUserInterface {
 	
 	private final EsUserService esUserService;

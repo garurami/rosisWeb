@@ -10,22 +10,17 @@ public class EsVolumeVO  {
 	private String esArchiveId;
 	private String esVolumeId;
 	private String esArchiveName;
-	private String esArchiveUsesize;
-	private String esArchiveLeftsize;
+	private double esArchiveUsesize;
+	private double esArchiveLeftsize;
 	private String esArchiveEtc;
 	
 	private String esVolumeName;
-	private String esVolumeUsesize;
-	private String esVolumeLeftsize;
-	private String esVolumeTotsize;
+	private int esVolumeUsesize;
+	private int esVolumeLeftsize;
+	private int esVolumeTotsize;
 	private String esVolumeType;
 	
 	
+	private long esFileSize;
 	
-	private String esFileSize;
-
-	private String esCreateFileSize;
-	private String esRemoveFileSize;
-	
-	private String esContentId;
 }

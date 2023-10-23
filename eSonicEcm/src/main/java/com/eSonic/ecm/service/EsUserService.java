@@ -19,8 +19,7 @@ public class EsUserService {
 	private final EntityManager entityManager = null;
 	@Autowired
 	private EsUserRepository esUserRepository;
-
-	@SuppressWarnings({ "finally" })
+	
 	public EsResultDTO getUser(String esUserId) {
 		EsResultDTO esResultDTO = new EsResultDTO();
 		try {
@@ -38,7 +37,6 @@ public class EsUserService {
 		}catch(Exception e) {
 			esResultDTO.setRtnCd("02");
 			esResultDTO.setRtnMsg("EXCEPTION");
-			e.printStackTrace();
 		}
 		finally {
 
@@ -48,10 +46,10 @@ public class EsUserService {
 		
 		
 	}
-
-	@SuppressWarnings({ "finally" })
+	
 	public String getUserStr(String esUserId) {
 		String rtnPassword = "";
+		EsResultDTO esResultDTO = new EsResultDTO();
 		try {
 			EsUserEntity esUserEntity = esUserRepository.findByEsUserId(esUserId);
 			if(esUserEntity ==null) {
@@ -64,7 +62,6 @@ public class EsUserService {
 			
 		}catch(Exception e) {
 			rtnPassword = "EXCEPTION : " + e.getMessage();
-			e.printStackTrace();
 		}
 		finally {
 
@@ -75,8 +72,7 @@ public class EsUserService {
 		
 	}
 	
-
-	@SuppressWarnings({ "null", "finally" })
+	
 	public EsResultDTO getUserList(EsUserDTO esUserDTO) {
 		EsResultDTO esResultDTO = null;
 		try {
@@ -97,14 +93,12 @@ public class EsUserService {
 			esResultDTO.setRtnCd("2");
 			esResultDTO.setRtnMsg(e.getMessage());
 			e.printStackTrace();
-			e.printStackTrace();
 		}
 		finally {
 
 			return esResultDTO;
 		}	}
-
-	@SuppressWarnings({ "null", "finally" })
+	
 	public EsResultDTO esUserInsert(EsUserDTO esUserDTO) {
 		EsResultDTO esResultDTO = null;
 		try {
@@ -128,8 +122,7 @@ public class EsUserService {
 			return esResultDTO;
 		}
 	}
-
-	@SuppressWarnings({ "null", "finally" })
+	
 	public EsResultDTO esUserUpdatePut(String esUserId, EsUserDTO esUserDTO) {
 		EsResultDTO esResultDTO = null;
 		try {
@@ -161,8 +154,7 @@ public class EsUserService {
 			return esResultDTO;
 		}
 	}
-
-	@SuppressWarnings({ "null", "finally" })
+	
 	public EsResultDTO esUserUpdatePatch(String esUserId, EsUserDTO esUserDTO) {
 		EsResultDTO esResultDTO = null;
 		try {
@@ -194,8 +186,7 @@ public class EsUserService {
 			return esResultDTO;
 		}
 	}
-
-	@SuppressWarnings({ "null", "finally" })
+	
 	public EsResultDTO esUserDelete(String esUserId) {
 		EsResultDTO esResultDTO = null;
 		try {

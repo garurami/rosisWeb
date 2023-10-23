@@ -14,8 +14,9 @@ public class ESonicEcmApplication {
 
 	
 	public static void main(String[] args) {
+
 		SpringApplication.run(ESonicEcmApplication.class, args);
-		
+
 		TcpServer tcpServer = new TcpServer();
 		try {
 			tcpServer.runServer();

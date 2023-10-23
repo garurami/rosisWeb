@@ -7,8 +7,15 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.eSonic.ecm.VO.EsContentVO;
+import com.eSonic.ecm.VO.EsVolumeVO;
+import com.eSonic.ecm.domain.EsContentDTO;
+import com.eSonic.ecm.domain.EsContentEntity;
 import com.eSonic.ecm.domain.EsContentDTO;
 import com.eSonic.ecm.domain.EsContentEntity;
 import com.eSonic.ecm.domain.EsInterfaceDTO;
@@ -30,44 +37,19 @@ public class EsContentService {
 
 	//Mybatis
     private final EsContentMapper esContentMapper;
-    @Autowired
     public EsContentService(EsContentMapper esContentMapper) {
         this.esContentMapper = esContentMapper;
     }
     
-	@SuppressWarnings("finally")
-	public EsInterfaceDTO insertEsContentMyBatis(EsContentVO esContentVO) {
-		EsInterfaceDTO esInterfaceDTO = new EsInterfaceDTO();
-		try {
-			 int a = esContentMapper.insertEsContentMyBatis(esContentVO);
-			 if(a==1) {
-				 esInterfaceDTO.setRtnCode("01");
-				 esInterfaceDTO.setRtnMsg("SUCCESS");
-				 esInterfaceDTO.setContentKey(esContentVO.getEsContentId());
-			 }else {
-				 esInterfaceDTO.setRtnCode("00");
-				 esInterfaceDTO.setRtnMsg("ALREADYDATA");
-				 esInterfaceDTO.setContentKey("0");
-			 }
-		}catch(Exception e) {
-
-			 esInterfaceDTO.setRtnCode("02");
-			 esInterfaceDTO.setRtnMsg("EXCEPTION");
-			 esInterfaceDTO.setContentKey("-1");
-			 e.printStackTrace();
-		}finally {
-			
-			 return esInterfaceDTO;
-		}
-		
+	public int insertEsContentMyBatis(EsContentVO esContentVO) {
+		return esContentMapper.insertEsContentMyBatis(esContentVO);
 	}
 	
 	
 	//Controller 사용
-
-	@SuppressWarnings({ "null", "finally" })
+	
 	public EsResultDTO getContentList(int pageNum, int cnt) {
-		EsResultDTO esResultDTO = new EsResultDTO();
+		EsResultDTO esResultDTO = null;
 		try {
 			// 페이지 요청 생성 (페이지 번호는 0부터 시작)
 			Pageable pageable = PageRequest.of(pageNum-1, cnt);
@@ -92,59 +74,22 @@ public class EsContentService {
 	
 	
 	//Interface 사용
-
-	@SuppressWarnings({ "null", "finally" })
-	public EsInterfaceDTO insertEsContent(EsContentDTO esContentDTO) {
-		EsInterfaceDTO esInterfaceDTO  = new EsInterfaceDTO();
-		try {
-			
-			
-			
-			System.out.println("esContentVO getEsFilePath : " + esContentDTO.getEsFilePath());
-			EsContentEntity esContentEntity = new EsContentEntity(esContentDTO);
-			EsContentEntity esContentRtnEntity= esContentRepository.save(esContentEntity);
-			
-			
-			if(esContentRtnEntity!=null) {
-				esInterfaceDTO.setContentKey(esContentDTO.getEsContentId());
-				esInterfaceDTO.setRtnCode("01");
-				esInterfaceDTO.setRtnMsg("SUCCESS");
-			}else {
-
-				esInterfaceDTO.setContentKey("");
-				esInterfaceDTO.setRtnCode("00");
-				esInterfaceDTO.setRtnMsg("FAILED");
-			}
-			
-		}catch(Exception e) {
-			esInterfaceDTO.setContentKey("");
-			esInterfaceDTO.setRtnCode("02");
-			esInterfaceDTO.setRtnMsg("EXCEPTION");
-			e.printStackTrace();
-		}
-		finally {
-			return esInterfaceDTO;
-		}
-		
-	}
 	
-	
-	@SuppressWarnings({ "null", "finally" })
 	public EsResultDTO getContent(String esElementId) {
-		EsResultDTO esResultDTO = new EsResultDTO();
+		EsResultDTO esResultDTO = null;
 		try {
 			EsContentEntity esContentEntity = esContentRepository.findByEsContentId(esElementId);
 			if(esContentEntity==null) {
-				esResultDTO.setRtnCd("00");
+				esResultDTO.setRtnCd("0");
 				esResultDTO.setRtnMsg("NODATA");
 			}else {
-				esResultDTO.setRtnCd("01");
+				esResultDTO.setRtnCd("1");
 				esResultDTO.setRtnMsg("SUCCESS");
 				esResultDTO.setEsContentEntity(esContentEntity);
 			}
 			
 		}catch(Exception e) {
-			esResultDTO.setRtnCd("02");
+			esResultDTO.setRtnCd("-100");
 			esResultDTO.setRtnMsg(e.getMessage());
 			e.printStackTrace();
 		}
@@ -153,17 +98,44 @@ public class EsContentService {
 			return esResultDTO;
 		}
 	}
-
 	
+	public EsInterfaceDTO insertEsContent(EsContentDTO esContentDTO) {
+		EsInterfaceDTO esInterfaceDTO = null;
 
-	@SuppressWarnings({ "null", "finally" })
+		try {
+			EsContentEntity esContentEntity = new EsContentEntity(esContentDTO);
+			EsContentEntity rtnEntity = esContentRepository.save(esContentEntity);
+			
+			if(!check(rtnEntity.getEsContentId())) {
+				esInterfaceDTO.setContentKey(rtnEntity.getEsContentId());
+				esInterfaceDTO.setRtnCode("1");
+				esInterfaceDTO.setRtnMsg("SUCCESS");
+			}else {
+
+				esInterfaceDTO.setContentKey("");
+				esInterfaceDTO.setRtnCode("-1");
+				esInterfaceDTO.setRtnMsg("FAILED");
+			}
+			
+		}catch(Exception e) {
+			esInterfaceDTO.setContentKey("");
+			esInterfaceDTO.setRtnCode("-100");
+			esInterfaceDTO.setRtnMsg(e.getMessage());
+			e.printStackTrace();
+		}
+		finally {
+			return esInterfaceDTO;
+		}
+		
+	}
+
 	public EsInterfaceDTO updateEsContent(String esElementId,EsContentDTO esContentDTO) {
 		EsInterfaceDTO esInterfaceDTO = null;
 		try {
 			//esElementId 로 기존 데이터 찾아줌
 			EsContentEntity esContentEntity = entityManager.find(EsContentEntity.class, esElementId);
 			if(esContentEntity==null) {
-				esInterfaceDTO.setRtnCode("00");
+				esInterfaceDTO.setRtnCode("0");
 				esInterfaceDTO.setRtnMsg("NODATA");
 			}else {
 				//찾은 데이터와 받은 데이터 합치기
@@ -175,12 +147,12 @@ public class EsContentService {
 				esInterfaceDTO.setEsContentEntity(rtnEntity);
 				esInterfaceDTO.setEsContentDTO(esContentDTO);
 				if(rtnEntity.getEsWriteDate() == esContentDTO.getEsWriteDate()) {
-					esInterfaceDTO.setRtnCode("01");
+					esInterfaceDTO.setRtnCode("1");
 					esInterfaceDTO.setRtnMsg("SUCCESS");
 				}else {
 					esInterfaceDTO.setEsContentEntity(rtnEntity);
 					esInterfaceDTO.setEsContentDTO(esContentDTO);
-					esInterfaceDTO.setRtnCode("00");
+					esInterfaceDTO.setRtnCode("-1");
 					esInterfaceDTO.setRtnMsg("NOUPDATE");
 					
 				}
@@ -188,10 +160,7 @@ public class EsContentService {
 			
 			
 		}catch(Exception e){
-
-			esInterfaceDTO.setRtnCode("02");
-			esInterfaceDTO.setRtnMsg("EXCEPTION:" + e.getMessage());
-			e.printStackTrace();
+			
 			
 			
 		}finally {
@@ -200,21 +169,20 @@ public class EsContentService {
 		}
 		
 	}
-
-	@SuppressWarnings({ "null", "finally" })
+		
 	public EsInterfaceDTO deleteEsContent(String esContentId) {
 		long rtnCnt = 0;
 		 EsInterfaceDTO esInterfaceDTO = null;
 		try {
 			 rtnCnt = esContentRepository.deleteByEsContentId(esContentId);
 			 esInterfaceDTO.setContentKey("");
-			 esInterfaceDTO.setRtnCode( rtnCnt==1 ? "01" : "00" );
+			 esInterfaceDTO.setRtnCode(""+rtnCnt);
 			 esInterfaceDTO.setRtnMsg( rtnCnt==1 ? "SUCCESS" : "NODATA" );
 			
 		}catch(Exception e) {
-			esInterfaceDTO.setContentKey("");
-			esInterfaceDTO.setRtnCode("02");
-			esInterfaceDTO.setRtnMsg("EXCEPTION:" + e.getMessage());
+			 esInterfaceDTO.setContentKey("");
+			 esInterfaceDTO.setRtnCode("-1");
+			 esInterfaceDTO.setRtnMsg( e.getMessage() );
 			e.printStackTrace();
 			rtnCnt = -1;
 		}finally {
@@ -226,7 +194,6 @@ public class EsContentService {
 	
 	//사용을 위한 함수항목
 
-	@SuppressWarnings({ "null" })
 	//DTO에 없는 내용을 조회한 Entity 와 합쳐주기 위한 함수
 	public EsContentDTO setContetDTO(EsContentEntity INesContentEntity,EsContentDTO OUTesContentDTO ) {
 		if(INesContentEntity== null) {

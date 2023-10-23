@@ -2,15 +2,23 @@ package com.eSonic.ecm.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.eSonic.ecm.domain.EsVolumeDTO;
 import com.eSonic.ecm.domain.EsVolumeEntity;
 import com.eSonic.ecm.mapper.EsVolumeMapper;
-import com.eSonic.ecm.VO.EsResultVO;
 import com.eSonic.ecm.VO.EsVolumeVO;
+import com.eSonic.ecm.domain.EsContentEntity;
 import com.eSonic.ecm.domain.EsResultDTO;
+import com.eSonic.ecm.domain.EsUserDTO;
+import com.eSonic.ecm.domain.EsUserEntity;
 import com.eSonic.ecm.repository.EsVolumeRepository;
+import com.eSonic.ecm.repository.EsUserRepository;
 
 import jakarta.persistence.EntityManager;
 
@@ -20,129 +28,27 @@ public class EsVolumeService {
 	
 	private final EntityManager entityManager = null;
 	
+	
 
 	//Mybatis
-
     private final EsVolumeMapper esVolumeMapper;
     public EsVolumeService(EsVolumeMapper esVolumeMapper) {
         this.esVolumeMapper = esVolumeMapper;
     }
-    
-
-	@SuppressWarnings({ "finally" })
-	public EsResultVO getUsedVolume(EsVolumeVO esVolumeVO) {
+	public EsVolumeVO getUsedVolume(EsVolumeVO esVolumeVO) {
 		
-		EsResultVO esResultVO = new EsResultVO();
-		try {
-			EsVolumeVO esVolumeRtnVO = esVolumeMapper.getUsedVolume(esVolumeVO);
-			esResultVO.setEsVolumeVO(esVolumeRtnVO);
-			if(esVolumeRtnVO ==null) {
-				esResultVO.setRtnCd("00");
-				esResultVO.setRtnMsg("NODATA");
-			}else {
 
-				esResultVO.setRtnCd("01");
-				esResultVO.setRtnMsg("SUCCESS");
-			}
-			
-		}catch(Exception e) {
-			esResultVO.setRtnCd("02");
-			esResultVO.setRtnMsg("EXCEPTION");
-			e.printStackTrace();
-		}
-		finally {
-
-			return esResultVO;
-		}
-		
-		
+        return esVolumeMapper.getUsedVolume(esVolumeVO);
 	}
-
-	@SuppressWarnings({ "null", "finally" })
-	public EsResultVO updateVolume(EsVolumeVO esVolumeVO) {
-		EsResultVO esResultVO = new EsResultVO();
-		try {
-//			//남은용량이 얼마나 있는지 체크해야함 
-//			if(Integer.parseInt(esVolumeMapper.checkVolume(esVolumeVO)) < 0) {
-//				
-//				//잔여스토리지를 찾아서 다시 해야할거같은데???
-//
-//				esResultVO.setRtnCd("03");
-//				esResultVO.setRtnMsg("NOSPACE : " + esVolumeVO.getEsVolumeId());
-//				return esResultVO;
-//			}
-			int i = esVolumeMapper.updateVolume(esVolumeVO);
-			
-			
-			
-			if(i ==0) {
-				esResultVO.setRtnCd("00");
-				esResultVO.setRtnMsg("NODATA");
-			}else {
-
-				esResultVO.setRtnCd("01");
-				esResultVO.setRtnMsg("SUCCESS");
-			}
-			
-		}catch(Exception e) {
-			esResultVO.setRtnCd("02");
-			esResultVO.setRtnMsg("EXCEPTION");
-			e.printStackTrace();
-		}
-		finally {
-
-			return esResultVO;
-		}
-		
-	}
-	
-	@SuppressWarnings({ "null", "finally" })
-	public EsResultVO updateVolumeReplace(EsVolumeVO esVolumeVO) {
-		EsResultVO esResultVO = new EsResultVO();
-		try {
-			//남은용량이 얼마나 있는지 체크해야함 
-			if(Integer.parseInt(esVolumeMapper.checkVolume(esVolumeVO)) < 0) {
-				
-				//잔여스토리지를 찾아서 다시 해야할거같은데???
-				esResultVO.setRtnCd("03");
-				esResultVO.setRtnMsg("NOSPACE : " + esVolumeVO.getEsVolumeId());
-				return esResultVO;
-			}
-			int i = esVolumeMapper.updateVolume(esVolumeVO);
-			
-			
-			
-			if(i ==0) {
-				esResultVO.setRtnCd("00");
-				esResultVO.setRtnMsg("NODATA");
-			}else {
-
-				esResultVO.setRtnCd("01");
-				esResultVO.setRtnMsg("SUCCESS");
-			}
-			
-		}catch(Exception e) {
-			esResultVO.setRtnCd("02");
-			esResultVO.setRtnMsg("EXCEPTION");
-			e.printStackTrace();
-		}
-		finally {
-
-			return esResultVO;
-		}
-		
-	}
-	
 	
 	public int updateUsedVolume(EsVolumeVO esVolumeVO) {
-		return esVolumeMapper.updateVolume(esVolumeVO);
+		return esVolumeMapper.updateUsedVolume(esVolumeVO);
 	}
 	
 	
 	
 	
 	//JPA
-	@SuppressWarnings({ "null", "finally" })
 	public EsResultDTO getVolume(String esVolumeId) {
 
 		EsResultDTO esResultDTO = null;
@@ -172,8 +78,7 @@ public class EsVolumeService {
 		
 		
 	}
-
-	@SuppressWarnings({ "null", "finally" })
+	
 	public EsResultDTO getVolumeList(EsVolumeDTO esVolumeDTO) {
 		EsResultDTO esResultDTO = null;
 		try {
@@ -198,8 +103,7 @@ public class EsVolumeService {
 
 			return esResultDTO;
 		}	}
-
-	@SuppressWarnings({ "null", "finally" })
+	
 	public EsResultDTO esVolumeInsert(EsVolumeDTO esVolumeDTO) {
 		EsResultDTO esResultDTO = null;
 		try {
@@ -223,8 +127,7 @@ public class EsVolumeService {
 			return esResultDTO;
 		}
 	}
-
-	@SuppressWarnings({ "null", "finally" })
+	
 	public EsResultDTO esVolumeUpdatePut(String esVolumeId, EsVolumeDTO esVolumeDTO) {
 		EsResultDTO esResultDTO = null;
 		try {
@@ -257,8 +160,7 @@ public class EsVolumeService {
 			return esResultDTO;
 		}
 	}
-
-	@SuppressWarnings({ "null", "finally" })
+	
 	public EsResultDTO esVolumeUpdatePatch(String esVolumeId, EsVolumeDTO esVolumeDTO) {
 		EsResultDTO esResultDTO = null;
 		try {
@@ -291,8 +193,7 @@ public class EsVolumeService {
 			return esResultDTO;
 		}
 	}
-
-	@SuppressWarnings({ "null", "finally" })
+	
 	public EsResultDTO esVolumeDelete(String esVolumeId) {
 		EsResultDTO esResultDTO = null;
 		try {
@@ -322,7 +223,6 @@ public class EsVolumeService {
 	//사용을 위한 함수항목
 	
 	//DTO에 없는 내용을 조회한 Entity 와 합쳐주기 위한 함수
-	@SuppressWarnings({ "null" })
 	public EsVolumeDTO setVolumeDTO(EsVolumeEntity INesVolumeEntity,EsVolumeDTO OUTesVolumeDTO ) {
 		if(INesVolumeEntity== null) {
 			OUTesVolumeDTO.setEsVolumeId(INesVolumeEntity.getEsVolumeId());
@@ -347,7 +247,6 @@ public class EsVolumeService {
 	public boolean check(String checkedValue) {
 		return checkedValue == "" || checkedValue == null ? true : false;
 	}
-	
 	
 	
 	

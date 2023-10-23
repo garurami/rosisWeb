@@ -2,11 +2,20 @@ package com.eSonic.ecm.domain;
 
 import java.util.Date;
 
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
+import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import jakarta.persistence.Transient;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -32,6 +41,7 @@ public class EsContentEntity {
 	private String esContentClassId;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date esWriteDate;
+
 	@Builder
 	public EsContentEntity(EsContentDTO esContentDTO) {
 		this.esContentId = esContentDTO.getEsContentId();
@@ -46,9 +56,6 @@ public class EsContentEntity {
 		this.esFileExt = esContentDTO.getEsFileExt();
 		this.esContentClassId = esContentDTO.getEsContentClassId();
 		this.esWriteDate = esContentDTO.getEsWriteDate();
-	}
-	public EsContentEntity() {
-		// TODO Auto-generated constructor stub
 	}
 
 
